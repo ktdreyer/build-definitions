@@ -357,7 +357,7 @@ spec:
     - $(params.SOURCE_ARTIFACT)=/var/workdir/source
     - $(params.CACHI2_ARTIFACT)=/var/workdir/cachi2
     computeResources: {}
-    image: quay.io/konflux-ci/build-trusted-artifacts:latest@sha256:9bd32f6bafb517b309e11a2d89365052b4ab3f1c9c23c4ffd45aff6f03960476
+    image: quay.io/konflux-ci/build-trusted-artifacts:latest@sha256:77563b5fb4b82f9b6a47070ba06e60486567d34e03ea60cd5169be0be53ad5dc
     name: use-trusted-artifact
     volumeMounts:
     - mountPath: /etc/pki/tls/certs/ca-custom-bundle.crt
@@ -1458,7 +1458,7 @@ spec:
       requests:
         cpu: 100m
         memory: 256Mi
-    image: quay.io/konflux-ci/appstudio-utils:latest@sha256:8bf633acc8d0addc1c7d47227f5052ad500de13e58950f153ece4a22d43002b7
+    image: quay.io/konflux-ci/appstudio-utils:latest@sha256:b3328bb14d6215ff4d3af03057684d9c8f00eca19dd7eb3a76aa9b485544de7e
     name: upload-sbom
     script: |
       #!/bin/bash
