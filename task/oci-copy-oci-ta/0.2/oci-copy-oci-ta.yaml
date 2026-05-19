@@ -79,12 +79,12 @@ spec:
         name: workdir
   steps:
     - name: use-trusted-artifact
-      image: quay.io/konflux-ci/build-trusted-artifacts:latest@sha256:fb7ce11be542bc524be2c5ea78fd73c87a8a8cbf333905fcdf8b7cb700ad178a
+      image: quay.io/konflux-ci/build-trusted-artifacts:latest@sha256:c2aa9871a7537c7efc6de24e1e3de4efcc04fd9930bedc9d0505fc1634fac83b
       args:
         - use
         - $(params.SOURCE_ARTIFACT)=/var/workdir/source
     - name: prepare
-      image: quay.io/konflux-ci/task-runner:1.6.0@sha256:1abfe4e50d4e961d0fd9790202565f93ee650fe8dfc50932c94989acba10485f
+      image: quay.io/konflux-ci/task-runner:1.7.0@sha256:1c0582a85dae0949f3ec94aca95695c5d7698b371f1b76c5a78822a6249073dc
       workingDir: /var/workdir
       script: |
         #!/bin/bash
@@ -114,7 +114,7 @@ spec:
           cat "/var/workdir/vars/$varfile"
         done
     - name: oci-copy
-      image: quay.io/konflux-ci/task-runner:1.6.0@sha256:1abfe4e50d4e961d0fd9790202565f93ee650fe8dfc50932c94989acba10485f
+      image: quay.io/konflux-ci/task-runner:1.7.0@sha256:1c0582a85dae0949f3ec94aca95695c5d7698b371f1b76c5a78822a6249073dc
       workingDir: /var/workdir
       volumeMounts:
         - mountPath: /var/lib/containers
@@ -552,7 +552,7 @@ spec:
           --image-digest "$IMAGE_DIGEST" \
           --sbom-type "$SBOM_TYPE"
     - name: upload-sbom
-      image: quay.io/konflux-ci/task-runner:1.6.0@sha256:1abfe4e50d4e961d0fd9790202565f93ee650fe8dfc50932c94989acba10485f
+      image: quay.io/konflux-ci/task-runner:1.7.0@sha256:1c0582a85dae0949f3ec94aca95695c5d7698b371f1b76c5a78822a6249073dc
       workingDir: /var/workdir
       script: |
         # Pre-select the correct credentials to work around cosign not supporting the containers-auth.json spec
@@ -562,7 +562,7 @@ spec:
         runAsNonRoot: false
         runAsUser: 0
     - name: report-sbom-url
-      image: quay.io/konflux-ci/task-runner:1.6.0@sha256:1abfe4e50d4e961d0fd9790202565f93ee650fe8dfc50932c94989acba10485f
+      image: quay.io/konflux-ci/task-runner:1.7.0@sha256:1c0582a85dae0949f3ec94aca95695c5d7698b371f1b76c5a78822a6249073dc
       workingDir: /var/workdir
       script: |
         #!/bin/bash
