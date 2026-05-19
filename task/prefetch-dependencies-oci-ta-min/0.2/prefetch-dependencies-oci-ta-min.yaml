@@ -83,7 +83,7 @@ spec:
       value: $(params.input)
     - name: SOURCE_ARTIFACT
       value: $(params.SOURCE_ARTIFACT)
-    image: registry.access.redhat.com/ubi9/ubi-minimal:9.7-1777857961@sha256:8d0a8fb39ec907e8ca62cdd24b62a63ca49a30fe465798a360741fde58437a23
+    image: registry.access.redhat.com/ubi9/ubi-minimal:9.7-1778562320@sha256:12db9874bd753eb98b1ab3d840e75de5d6842ac0604fbd68c012adefe97140be
     name: skip-ta
     script: |
       #!/bin/bash
@@ -99,9 +99,9 @@ spec:
   - args:
     - use
     - $(params.SOURCE_ARTIFACT)=/var/workdir/source
-    image: quay.io/konflux-ci/build-trusted-artifacts:latest@sha256:339f1a641a46e2a20b5c1aa5d1323c702812d012a1fae475ab27ae795554e523
+    image: quay.io/konflux-ci/build-trusted-artifacts:latest@sha256:c2aa9871a7537c7efc6de24e1e3de4efcc04fd9930bedc9d0505fc1634fac83b
     name: use-trusted-artifact
-  - image: quay.io/konflux-ci/yq:latest@sha256:5a41c8ccca7219156b2a56209c4329e1dad1e4015c71a492dd2c7d3e01451c17
+  - image: quay.io/konflux-ci/yq:latest@sha256:06518dab2bb28223e141c982c71353e2609d70fe17f6151cb885563602fafda5
     name: sanitize-config-file-with-yq
     script: |
       if [ -n "${CONFIG_FILE_CONTENT}" ]; then
@@ -384,7 +384,7 @@ spec:
     env:
     - name: IMAGE_EXPIRES_AFTER
       value: $(params.ociArtifactExpiresAfter)
-    image: quay.io/konflux-ci/build-trusted-artifacts:latest@sha256:339f1a641a46e2a20b5c1aa5d1323c702812d012a1fae475ab27ae795554e523
+    image: quay.io/konflux-ci/build-trusted-artifacts:latest@sha256:c2aa9871a7537c7efc6de24e1e3de4efcc04fd9930bedc9d0505fc1634fac83b
     name: create-trusted-artifact
   volumes:
   - name: activation-key
