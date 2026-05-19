@@ -124,7 +124,7 @@ spec:
           - name: name
             value: sast-unicode-check
           - name: bundle
-            value: quay.io/konflux-ci/tekton-catalog/task-sast-unicode-check:0.4@sha256:fd7c78e9b0375a9e92f235a0173e85de3371cd00d33e8ed212647279525aadd1
+            value: quay.io/konflux-ci/tekton-catalog/task-sast-unicode-check:0.4@sha256:c162d9d0cd1e4c64dfc340577ba8e6bf55ebd1bb859fe3157217de9b4473c640
           - name: kind
             value: task
           resolver: bundles
@@ -149,7 +149,7 @@ spec:
                 echo $? > partner-tasks-code.out
                 cat partner-tasks.out
             - name: create-comment
-              image: registry.access.redhat.com/ubi9/python-39:9.7-1776644933@sha256:ee2a11266ec90665de33302f74d913d556cf2dc67d68208cada62de15a6859b9
+              image: registry.access.redhat.com/ubi9/python-39:9.7-1778661867@sha256:8829cfd1f126470f97831c44793054e6ab816d2cbe758f142721e6f7141b0349
               volumeMounts:
                 - name: infra-deployments-pr-creator
                   mountPath: /secrets/deploy-key
@@ -303,7 +303,7 @@ spec:
         taskSpec:
           steps:
             - name: check-task-migration-md
-              image: registry.redhat.io/openshift4/ose-tools-rhel8:v4.12@sha256:c24dbe19be6cd9b2a8ab9a76f50607b123b75fcf8a3aeeed45ac91a7bde107a0
+              image: registry.redhat.io/openshift4/ose-tools-rhel8:v4.12@sha256:727d0e69ad9ec97a982a32ab789c302c1a7983aca2cbeae07ea9f01847d03473
               workingDir: $(workspaces.source.path)/source
               script: |
                 #!/usr/bin/env bash
@@ -339,7 +339,7 @@ spec:
               type: string
           steps:
             - name: e2e-cleanup
-              image: registry.redhat.io/openshift4/ose-cli:v4.12@sha256:5ae89e3ac5763088c1d346e1cc44c5263f2d2d55668234513b0d2f3fc6b2a6c8
+              image: registry.redhat.io/openshift4/ose-cli:v4.12@sha256:5c94fb4ee0231cfed1deaa9e2720124e9d3669c54fd1c408edd28f4b56b79cc4
               script: |
                 #!/usr/bin/env bash
                 # Perform cleanup of resources created by gitops service
